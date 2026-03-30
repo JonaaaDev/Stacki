@@ -33,7 +33,8 @@ void Table::Place(Piece& piece, int x, int y) {
                 grid[y+i][x+j].filled = true;
                 grid[y+i][x+j].color = piece.color;
             }
-    score += CheckLines();
+    int completedLines = CheckLines();
+    score += gameManager.CalculateLineClearScore(completedLines);
 }
 
 int Table::CheckLines() {

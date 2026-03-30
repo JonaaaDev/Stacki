@@ -2,8 +2,14 @@
 #define TABLE_H
 
 #include "Piece.h"
+#include "GameManager.h"
 #include "raylib.h"
 #include <vector>
+
+struct Cell {
+    bool filled = false;
+    Color color = RAYWHITE;
+};
 
 class Table {
 private:
@@ -11,6 +17,7 @@ private:
     int height;
     int cellSize;
     std::vector<std::vector<Cell>> grid;
+    GameManager gameManager;
 
 public:
     int score;
@@ -22,11 +29,6 @@ public:
     int CheckLines();
     bool CanPlaceAny(std::vector<Piece>& pieces);
     void Draw();
-};
-
-struct Cell {
-    bool filled = false;
-    Color color = RAYWHITE;
 };
 
 #endif
